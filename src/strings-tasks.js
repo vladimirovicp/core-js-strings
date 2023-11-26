@@ -289,6 +289,7 @@ function orderAlphabetically(str) {
 
 /**
  * Checks if a given string contains a specified substring.
+ * Проверяет, содержит ли данная строка указанную подстроку.
  *
  * @param {string} str - The input string to search within.
  * @param {string} substring - The substring to check for in the input string.
@@ -299,13 +300,14 @@ function orderAlphabetically(str) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
  * Returns the number of vowels in the string.
  * Vowels: 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'.
+ * Возвращает количество гласных в строке.
  *
  * @param {string} str - The input string.
  * @return {number} - The number of vowels in the string.
@@ -317,13 +319,22 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  let count = 0;
+  const vowels = 'aeiouyAEIOUY';
+  for (let i = 0; i < str.length; i += 1) {
+    if (vowels.includes(str[i])) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 /**
  * Returns true if the string is a palindrome; otherwise false.
  * https://en.wikipedia.org/wiki/Palindrome
+ *
+ * Возвращает true, если строка является палиндромом; в противном случае ложь.
  *
  * @param {string} str - The input string.
  * @return {bool} - True if the string is a palindrome, false otherwise.
@@ -334,8 +345,10 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const strConvert = str.replaceAll(/[^a-zA-ZА-Яа-яЁё]/gi, '').toLowerCase();
+  const strRevers = [...strConvert].reverse().join('');
+  return strConvert === strRevers;
 }
 
 /**
