@@ -381,12 +381,15 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const arr = str.split(' ');
+  const srrRevers = arr.map((el) => [...el].reverse().join(''));
+  return srrRevers.join(' ');
 }
 
 /**
  * Inverts the case of each character in the given string.
+ * Инвертирует регистр каждого символа в заданной строке.
  *
  * @param {string} str - The input string.
  * @returns {string} - The string with the case of each character inverted.
@@ -396,8 +399,15 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let res = '';
+  for (let i = 0; i < str.length; i += 1) {
+    res +=
+      str[i] === str[i].toUpperCase()
+        ? str[i].toLowerCase()
+        : str[i].toUpperCase();
+  }
+  return res;
 }
 
 /**
