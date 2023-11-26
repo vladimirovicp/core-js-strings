@@ -346,7 +346,7 @@ function countVowels(str) {
  *   isPalindrome('No lemon, no melon') => true
  */
 function isPalindrome(str) {
-  const strConvert = str.replaceAll(/[^a-zA-ZА-Яа-яЁё]/gi, '').toLowerCase();
+  const strConvert = str.replaceAll(/[^a-zA-Z]/gi, '').toLowerCase();
   const strRevers = [...strConvert].reverse().join('');
   return strConvert === strRevers;
 }
@@ -354,6 +354,9 @@ function isPalindrome(str) {
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
  * the function returns the first one encountered.
+ *
+ * Найдите самое длинное слово в предложении. Если существует
+ * несколько самых длинных слов, функция возвращает первое встретившееся.
  *
  * @param {string} sentence - The input sentence.
  * @returns {string} - The longest word in the sentence.
@@ -363,12 +366,13 @@ function isPalindrome(str) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  return sentence.split(' ').sort((a, b) => b.length - a.length)[0];
 }
 
 /**
  * Returns the string where each word is reversed.
+ * Возвращает строку, в которой каждое слово перевернуто.
  *
  * @param {string} str - The input string.
  * @return {string} - The string where each word is reversed.
